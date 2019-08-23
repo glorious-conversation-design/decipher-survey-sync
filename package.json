@@ -1,0 +1,26 @@
+{
+  "name": "decipher-survey-sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/decipher-survey-sync.js",
+  "test": "./test/test.js",
+  "bin": {
+    "decipher-survey-sync": "./bin/index.js",
+    "dss": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.3.3",
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
