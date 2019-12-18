@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const axios = require('axios');
-
+const readline = require('readline');
 const colors = require('colors');
 const inquirer = require('inquirer');
 const dss = require('../lib/decipher-survey-sync.js');
@@ -181,6 +181,39 @@ choices.sort(function(a,b) {
         console.log('Showing survey in ' + conf.openEditor);
     }
 
+
+/*
+  readline.emitKeypressEvents(process.stdin)
+  process.stdin.setRawMode(true)
+  process.stdin.resume()
+  process.stdin.on('keypress', (str, key) => {
+    if (key.ctrl && key.name == 'c') {
+        process.exit();
+    }
+    if (key.name == 'return') {
+        init();
+    }
+  })
+*/
+
+        const switchmenu =
+        [{
+            type: 'list',
+            name: 'action',
+            message: '',
+            choices: ['Switch project'],
+            validate: (input) => {
+
+            }
+        }]
+        const switchvar = await inquirer.prompt(switchmenu);
+        switch (switchvar) {
+            case 'Switch project':
+                init();
+                break;
+            default:
+                init();
+        }
 
 }
 
