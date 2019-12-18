@@ -6,10 +6,14 @@ const inquirer = require('inquirer');
 const dss = require('../lib/decipher-survey-sync.js');
 const APITool = require("../lib/api-tool");
 const fss = require('fs').promises;
+const fs = require('fs');
+const { exec } = require('child_process');
+
 let the_api_key = '';
 
 
 const hep = init();
+
 
 
 
@@ -67,7 +71,21 @@ const hep = init();
 
 
 async function init() {
-
+    let conf = null;
+    if (!fs.existsSync('config.json')) {
+        conf = {
+            openEditor: '',
+        }
+        try {
+            const written = await fss.writeFile('config.json', JSON.stringify(conf));
+        }
+        catch {
+            console.error('Couldn\'t write config');
+        }
+    }
+    else {
+        conf = JSON.parse(await fss.readFile('config.json'));
+    }
 
     the_api_key = await dss.get_api_key();
 
@@ -83,7 +101,7 @@ async function init() {
 
     console.log('\n');
 
-    let choices = ['New Project'];
+    let choices = [{name: 'New Project', atime: new Date()} ];
     let projectlist = [];
     try {
         projectlist = await fss.readdir('projects/');
@@ -93,18 +111,25 @@ async function init() {
     }
     projectlist.map((project) => {
         if (project.substr(0,1) != '.') {
-            choices.push(project);
+            const stats = fs.statSync('projects/' + project);
+            const atime = stats.atime;
+            choices.push( { name: project, atime: atime});
+
+
         }
     });
 
-
-
+choices.sort(function(a,b) {
+    return a.atime < b.atime;
+});
     const questions =
     [{
         type: 'list',
         name: 'action',
         message: colors.green('Please choose a project...'),
-        choices: choices,
+        choices: choices.map((choice) => {
+                    return choice.name;
+                 }),
         validate: (input) => {
 
         }
@@ -112,7 +137,7 @@ async function init() {
 
 
 
-/*  Maybe change it back sometimes but for now I want to show the existing projects here.
+    /*  Maybe change it back sometimes but for now I want to show the existing projects here.
     const questions =
     [{
         type: 'list',
@@ -151,6 +176,11 @@ async function init() {
     let api_tool = new APITool(testParams);
 
     api_tool.watch();
+    if (conf.openEditor != '') {
+        exec(conf.openEditor + ' projects/' + project_number + '/survey.xml');
+        console.log('Showing survey in ' + conf.openEditor);
+    }
+
 
 }
 
