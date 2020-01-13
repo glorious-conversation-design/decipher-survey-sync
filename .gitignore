@@ -1,5 +1,8 @@
 node_modules
-Projects
+project
 api.key
 config.json
 .DS_Store
+lib/regex.js
+lib/testparser.js
+synctool.zip

@@ -3,8 +3,8 @@ const axios = require('axios');
 const readline = require('readline');
 const colors = require('colors');
 const inquirer = require('inquirer');
-const dss = require('../lib/decipher-survey-sync.js');
-const APITool = require("../lib/api-tool");
+const dss = require('./lib/decipher-survey-sync.js');
+const APITool = require("./lib/api-tool");
 const fss = require('fs').promises;
 const fs = require('fs');
 const { exec } = require('child_process');
@@ -96,22 +96,21 @@ async function init() {
 
 
     var prompt = inquirer.createPromptModule();
-    console.log('\n');
-    console.log('\n');
 
-    console.log('\n');
+
+
 
     let choices = [{name: 'New Project', atime: new Date()} ];
     let projectlist = [];
     try {
-        projectlist = await fss.readdir('projects/');
+        projectlist = await fss.readdir('project/');
     }
     catch(e) {
         console.log('Exception : ', e);
     }
     projectlist.map((project) => {
         if (project.substr(0,1) != '.') {
-            const stats = fs.statSync('projects/' + project);
+            const stats = fs.statSync('project/' + project);
             const atime = stats.atime;
             choices.push( { name: project, atime: atime});
 
@@ -137,7 +136,7 @@ choices.sort(function(a,b) {
 
 
 
-    /*  Maybe change it back sometimes but for now I want to show the existing projects here.
+    /*  Maybe change it back sometimes but for now I want to show the existing project here.
     const questions =
     [{
         type: 'list',
@@ -149,12 +148,11 @@ choices.sort(function(a,b) {
         }
     }]
     */
-    console.log('--------------------------------')
-    console.log("Welcome to Decipher Survey Sync!");
-    console.log('--------------------------------')
 
-    console.log('\n');
-    console.log("\n");
+
+
+
+
     const {action} = await prompt(questions);
     let project_number = null;
     switch(action) {
@@ -177,7 +175,12 @@ choices.sort(function(a,b) {
 
     api_tool.watch();
     if (conf.openEditor != '') {
-        exec(conf.openEditor + ' projects/' + project_number + '/survey.xml');
+        if (process.platform !== 'win32') {
+            exec(conf.openEditor + ' project/' + project_number + '/survey.xml');
+        }
+        else {
+            exec(conf.openEditor + ' project//' + project_number + '//survey.xml');
+        }
         console.log('Showing survey in ' + conf.openEditor);
     }
 
@@ -201,17 +204,22 @@ choices.sort(function(a,b) {
             type: 'list',
             name: 'action',
             message: '',
-            choices: ['Switch project'],
+            choices: ['Switch project', 'Quit'],
             validate: (input) => {
 
             }
         }]
         const switchvar = await inquirer.prompt(switchmenu);
-        switch (switchvar) {
+        switch (switchvar.action) {
             case 'Switch project':
                 init();
                 break;
+            case 'Quit':
+                console.log('Goodbye.');
+                return process.exit();
+                break;
             default:
+                console.log('going to default');
                 init();
         }
 
