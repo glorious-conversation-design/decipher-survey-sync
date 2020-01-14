@@ -102,6 +102,9 @@ async function init() {
 
     let choices = [{name: 'New Project', atime: new Date()} ];
     let projectlist = [];
+    if (!fs.existsSync('project')) {
+        fs.mkdirSync('project');
+    }
     try {
         projectlist = await fss.readdir('project/');
     }
