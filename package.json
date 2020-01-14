@@ -1,5 +1,6 @@
 {
   "name": "decipher-survey-sync",
+  "title": "Decipher Survey Sync",
   "version": "1.0.0",
   "description": "Decipher API based tool for downloading and updating surveys.",
   "main": "dss.js",

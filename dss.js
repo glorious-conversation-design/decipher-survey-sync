@@ -5,88 +5,44 @@ const colors = require('colors');
 const inquirer = require('inquirer');
 const dss = require('./lib/decipher-survey-sync.js');
 const APITool = require("./lib/api-tool");
-const fss = require('fs').promises;
-const fs = require('fs');
+const fs = require('fs').promises;
+//const fs = require('fs');
 const { exec } = require('child_process');
 
+
 let the_api_key = '';
+(async () => {
+    const appInfo = JSON.parse(await fs.readFile('package.json', {
+        encoding: 'utf8'
+    }));
+
+    console.log('======================================');
+    console.log('Welcome to ' + appInfo.title + ' ' + appInfo.version);
+    console.log('======================================');
+    console.log(appInfo.copyright);
+    console.log();
+    init();
+
+})();
+async function init()  {
 
 
-const hep = init();
-
-
-
-
-
-
-
-
-
-
-//let api_tool = new APITool(testParams);
-
-//Saving you for dessert
-//api_tool.watch();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // -> get stored api key || ask for one
-
-
-//    const stuff = await init();
-
-//    console.log('but still');
-    //const some_response_i_will_get_at_a_point = await dss.get_api_key();
-    //console.log(some_response_i_will_get_at_a_point);
-
-
-
-    /*
-
-    if (API_KEY == false) {
-
-        console.log('Invalid API Key');
-    }
-
-
-    console.log('trying to test');
-
-    test_api_key(API_KEY);
-    */
-
-
-
-
-
-async function init() {
     let conf = null;
-    if (!fs.existsSync('config.json')) {
-        conf = {
-            openEditor: '',
-        }
+
         try {
-            const written = await fss.writeFile('config.json', JSON.stringify(conf));
+            conf = JSON.parse(await fs.readFile('config.json'));
         }
         catch {
-            console.error('Couldn\'t write config');
+            conf = {
+                openEditor: '',
+            }
+            try {
+                const written = await fs.writeFile('config.json', JSON.stringify(conf));
+            }
+            catch {
+                console.error('Couldn\'t write config');
+            }
         }
-    }
-    else {
-        conf = JSON.parse(await fss.readFile('config.json'));
-    }
-
     the_api_key = await dss.get_api_key();
 
 
@@ -101,26 +57,27 @@ async function init() {
 
 
     let choices = [{name: 'New Project', atime: new Date()} ];
+
     let projectlist = [];
-    if (!fs.existsSync('project')) {
-        fs.mkdirSync('project');
+    if (! await fs.stat('project')) {
+        await fs.mkdir('project');
     }
     try {
-        projectlist = await fss.readdir('project/');
+        projectlist = await fs.readdir('project/');
     }
     catch(e) {
         console.log('Exception : ', e);
     }
-    projectlist.map((project) => {
+    await Promise.all(projectlist.map(async (project) => {
+
         if (project.substr(0,1) != '.') {
-            const stats = fs.statSync('project/' + project);
+            const stats = await fs.stat('project/' + project);
             const atime = stats.atime;
             choices.push( { name: project, atime: atime});
 
 
         }
-    });
-
+    }));
 choices.sort(function(a,b) {
     return a.atime < b.atime;
 });
@@ -215,6 +172,7 @@ choices.sort(function(a,b) {
         const switchvar = await inquirer.prompt(switchmenu);
         switch (switchvar.action) {
             case 'Switch project':
+                if (api_tool) await api_tool.unwatch();
                 init();
                 break;
             case 'Quit':
