@@ -9,9 +9,6 @@ Decipher Survey Sync is a command line tool built by Epiphany with the purpose o
 In order to use the tool, you need to have Node.js version 10 or newer installed on your machine. You can find it on https://nodejs.org
 
 In order to get to tool, you just need to install [Git for Windows](https://git-scm.com/download/win) or [Git for Mac](https://git-scm.com/download/mac) 
-```
-git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
-```
 
 ## Getting started with the tool
 
