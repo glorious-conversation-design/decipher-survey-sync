@@ -26,7 +26,10 @@ let the_api_key = '';
 })();
 async function init()  {
 
-
+    const projectdirexists = await fs.stat('./project')
+        .catch((err) => {
+            fs.mkdir('./project');
+    });
     let conf = null;
 
         try {
