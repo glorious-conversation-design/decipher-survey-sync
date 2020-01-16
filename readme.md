@@ -22,13 +22,17 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 
     Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
 
-2. Run the following command in the command line / terminal.  
+2. Run the following command in the command prompt / terminal.  
 
     ```
     git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
     ```
 
-3. In termnal / command prompt, navigate to your local copy of the decipher-survey-sync repository. 
+3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command: 
+
+```
+cd decipher-survey-sync
+```
 
 4. Type `npm install` and wait for the dependencies to be downloaded.
 
