@@ -15,33 +15,19 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
 
 ## Getting started with the tool
 
-1. Create a new folder and extract the contents of `dss.zip` in it.
 
-2. Open in terminal / command prompt
 
-   **Mac / Linux users**
-   Open your terminal app and navigate to the folder where you've extracted the tool.
-   Example:
-   ```
-   cd ~/dss
-   ```
+1. In termnal / command prompt, navigate to your local copy of the decipher-survey-sync repository. 
 
-   **Windows users**
+2. Type `npm install` and wait for the dependencies to be downloaded.
 
-   Open your command prompt by typing cmd and pressing enter in the start menu and navigate to the folder where you've extracted the tool.
-   ```
-   cd c:\dss
-   ```
+3. Run the tool by typing `npm start`.
 
-3. In the terminal / command prompt window, type `npm install` and wait for the dependencies to be downloaded.
-
-4. In terminal / command prompt, start the tool by typing npm start.
-
-5. Paste your API key in the terminal prompt and press Enter. (this step will only be performed once)
+4. Paste your API key in the terminal prompt and press Enter. (this step will only be performed once)
 
    ```
    =====================================
-   Welcome to Decipher Survey Sync 0.0.0
+   Welcome to Decipher Survey Sync 1.0.0
    =====================================
    (C) Epiphany RBC B.V. (NL) 2020
 
@@ -50,18 +36,18 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
 
    ```
    =====================================
-   Welcome to Decipher Survey Sync 0.0.0
+   Welcome to Decipher Survey Sync 1.0.0
    =====================================
    (C) Epiphany RBC B.V. (NL) 2020
 
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe█
    ```
 
-6. Select `New project`, press Enter and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you’ve already worked on.
+5. Select `New project`, press Enter and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you’ve already worked on.
 
    ```
    =====================================
-   Welcome to Decipher Survey Sync 0.0.0
+   Welcome to Decipher Survey Sync 1.0.0
    =====================================
    (C) Epiphany RBC B.V. (NL) 2020
 
@@ -72,7 +58,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
 
    ```
    =====================================
-   Welcome to Decipher Survey Sync 0.0.0
+   Welcome to Decipher Survey Sync 1.0.0
    =====================================
    (C) Epiphany RBC B.V. (NL) 2020
 
@@ -81,7 +67,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
    ? Please enter project number: 190001█
    ```
 
-7. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
+6. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
 
    ```
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe
@@ -96,7 +82,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
      Quit
    ```
 
-8. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
+7. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
 
    If everything is correct, the online survey will be updated.
 
