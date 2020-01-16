@@ -8,22 +8,36 @@ Decipher Survey Sync is a command line tool built by Epiphany with the purpose o
 
 In order to use the tool, you need to have Node.js version 10 or newer installed on your machine. You can find it on https://nodejs.org
 
-In order to get to tool, you just need to install [Git for Windows](https://git-scm.com/download/win) or [Git for Mac](https://git-scm.com/download/mac) and run the following command in the command line / terminal.  
+In order to get to tool, you just need to install [Git for Windows](https://git-scm.com/download/win) or [Git for Mac](https://git-scm.com/download/mac) 
 ```
 git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
 ```
 
 ## Getting started with the tool
 
+1. Open your command prompt / terminal. 
 
+### Windows users:
 
-1. In termnal / command prompt, navigate to your local copy of the decipher-survey-sync repository. 
+    Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
+    
+### Mac OS users:
 
-2. Type `npm install` and wait for the dependencies to be downloaded.
+    Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
 
-3. Run the tool by typing `npm start`.
+2. Run the following command in the command line / terminal.  
 
-4. Paste your API key in the terminal prompt and press Enter. (this step will only be performed once)
+    ```
+    git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
+    ```
+
+3. In termnal / command prompt, navigate to your local copy of the decipher-survey-sync repository. 
+
+4. Type `npm install` and wait for the dependencies to be downloaded.
+
+5. Run the tool by typing `npm start`.
+
+6. Paste your API key in the terminal prompt and press Enter. (this step will only be performed once)
 
    ```
    =====================================
@@ -43,7 +57,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe█
    ```
 
-5. Select `New project`, press Enter and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you’ve already worked on.
+7. Select `New project`, press Enter and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you’ve already worked on.
 
    ```
    =====================================
@@ -67,7 +81,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
    ? Please enter project number: 190001█
    ```
 
-6. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
+8. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
 
    ```
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe
@@ -82,7 +96,7 @@ git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
      Quit
    ```
 
-7. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
+9. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
 
    If everything is correct, the online survey will be updated.
 
