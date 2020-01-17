@@ -16,17 +16,17 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 
 ### Windows users:
 
-    Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
+Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
     
 ### Mac OS users:
 
-    Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
+Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
 
 2. Run the following command in the command prompt / terminal.  
 
-    ```
-    git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
-    ```
+```
+git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
+```
 
 3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command: 
 
@@ -126,8 +126,9 @@ cd decipher-survey-sync
 
 ## Updating Decipher Survey Sync
 
-    To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command: 
-        ```
-        git pull origin master
-        ```
-    If there is a new version available, your copy will be updated. 
+To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command: 
+    
+```
+git pull origin master
+```
+If there is a new version available, your copy will be updated. 
