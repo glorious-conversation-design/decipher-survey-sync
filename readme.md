@@ -16,13 +16,13 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 
 1. Open your command prompt / terminal.
 
-   * Windows users:
+   * On Windows
 
      Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
 
-   * Mac OS users:
+   * On macOS
 
-     Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
+     Press the following keys: `[ Command ]` + `[ Space ]`, type `terminal` and press `[ Enter ]`.
 
 2. Run the following command in the command prompt / terminal.  
 
@@ -36,11 +36,23 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
    cd decipher-survey-sync
    ```
 
-4. Type `npm install` (and press `[ Enter ]`) and wait for the dependencies to be installed.
+4. Start the Decipher Survey Sync by executing the following command from the `decipher-survey-sync/` directory:
 
-5. Run the tool by typing `npm start` (and press `[ Enter ]`).
+   * On Windows
 
-6. Paste your API key in the terminal prompt and press `[ Enter ]` (this step will only be performed once).
+     ```
+     start.cmd
+     ```
+
+   * On macOS / Linux
+
+     ```
+     ./start.sh
+     ```
+
+   This will automatically update the Decipher Survey Sync application and install its dependencies.
+
+5. On first run, paste your API key in the terminal prompt and press `[ Enter ]` (this step will only be performed once).
 
    ```
    =====================================
@@ -60,7 +72,7 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe█
    ```
 
-7. Select `New project`, press `[ Enter ]` and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you've already worked on.
+6. Select `New project`, press `[ Enter ]` and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you've already worked on.
 
    ```
    =====================================
@@ -84,7 +96,7 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
    ? Please enter project number: 190001█
    ```
 
-8. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
+7. In your file browser (Finder on Mac - Explorer on Windows), navigate to the folder. Open the directory with the same name as the project and open the `survey.xml` file in your preferred code editor.
 
    ```
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe
@@ -99,7 +111,7 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
      Quit
    ```
 
-9. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
+8. Edit the `survey.xml` in your editor. The tool will try to update the online XML for you every time you save the file.
 
    If everything is correct, the online survey will be updated.
 
@@ -125,14 +137,3 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 
    Error at line 86. That label name ('ch8') has already been used.
    ```
-
-
-## Updating Decipher Survey Sync
-
-To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command:
-
-```
-git pull origin master
-```
-
-If there is a new version available, your copy will be updated.
