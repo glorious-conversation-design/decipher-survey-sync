@@ -25,7 +25,7 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 2. Run the following command in the command prompt / terminal.  
 
     ```
-    git clone git@github.com:glorious-conversation-design/decipher-survey-sync.git
+    git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
     ```
 
 3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command: 
