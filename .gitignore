@@ -2,7 +2,5 @@ node_modules
 project
 api.key
 config.json
-.DS_Store
-lib/regex.js
-lib/testparser.js
-synctool.zip
+local
+**/.DS_Store
