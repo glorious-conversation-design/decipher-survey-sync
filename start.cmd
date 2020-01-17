@@ -1,10 +1,8 @@
-#!/bin/bash
 
 git pull
 
-# if [[ ! -d "node_modules" ]]; then
-    npm install
-# fi
+npm install
+
 
 cls
 
