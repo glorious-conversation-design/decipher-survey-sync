@@ -24,11 +24,13 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
 
      Press the following keys: `[ Command ]` + `[ Space ]`, type `terminal` and press `[ Enter ]`.
 
-2. Run the following command in the command prompt / terminal.  
+2. To download the application, run the following command in the command prompt / terminal.
 
    ```
    git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
    ```
+
+   If the application is already installed, continue to the next step.
 
 3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command:
 
@@ -36,7 +38,7 @@ In order to get to tool, you just need to install [Git for Windows](https://git-
    cd decipher-survey-sync
    ```
 
-4. Start the Decipher Survey Sync by executing the following command from the `decipher-survey-sync/` directory:
+4. Start the Decipher Survey Sync by executing the following command in the terminal (from the `decipher-survey-sync/` directory):
 
    * On Windows
 
