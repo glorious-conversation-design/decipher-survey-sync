@@ -4,41 +4,43 @@
 
 Decipher Survey Sync is a command line tool built by Epiphany with the purpose of improving the scripting workflow on Decipher projects by allowing developers to download and update a project’s survey xml while working locally. The tool eliminates the need for manually copy-pasting code from text/code editors into the Decipher web XML Editor.
 
-## Pre-requirements
+
+## Prerequisites
 
 In order to use the tool, you need to have Node.js version 10 or newer installed on your machine. You can find it on https://nodejs.org
 
-In order to get to tool, you just need to install [Git for Windows](https://git-scm.com/download/win) or [Git for Mac](https://git-scm.com/download/mac) 
+In order to get to tool, you just need to install [Git for Windows](https://git-scm.com/download/win) or [Git for Mac](https://git-scm.com/download/mac)
+
 
 ## Getting started with the tool
 
-1. Open your command prompt / terminal. 
+1. Open your command prompt / terminal.
 
-### Windows users:
+   * Windows users:
 
-Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
-    
-### Mac OS users:
+     Press the following keys: `[ Windows ]` + `[ R ]`, type `cmd` and press `[ Enter ]`.
 
-Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
+   * Mac OS users:
+
+     Press the following keys: `[ cmd ]` + `[ space ]`, type `terminal` and press `[ Enter ]`.
 
 2. Run the following command in the command prompt / terminal.  
 
-```
-git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
-```
+   ```
+   git clone https://github.com/glorious-conversation-design/decipher-survey-sync.git
+   ```
 
-3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command: 
+3. In command prompt / terminal, navigate to your local copy of the decipher-survey-sync repository by typing the command:
 
-```
-cd decipher-survey-sync
-```
+   ```
+   cd decipher-survey-sync
+   ```
 
-4. Type `npm install` and wait for the dependencies to be downloaded.
+4. Type `npm install` (and press `[ Enter ]`) and wait for the dependencies to be installed.
 
-5. Run the tool by typing `npm start`.
+5. Run the tool by typing `npm start` (and press `[ Enter ]`).
 
-6. Paste your API key in the terminal prompt and press Enter. (this step will only be performed once)
+6. Paste your API key in the terminal prompt and press `[ Enter ]` (this step will only be performed once).
 
    ```
    =====================================
@@ -58,7 +60,7 @@ cd decipher-survey-sync
    ? Please provide the API key: dc5bcbf7f9372ccc9aedb581fe88edfe█
    ```
 
-7. Select `New project`, press Enter and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you’ve already worked on.
+7. Select `New project`, press `[ Enter ]` and type the project number of the survey that you want to work on – later, you will be able to select one of the projects you've already worked on.
 
    ```
    =====================================
@@ -124,11 +126,13 @@ cd decipher-survey-sync
    Error at line 86. That label name ('ch8') has already been used.
    ```
 
+
 ## Updating Decipher Survey Sync
 
-To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command: 
-    
+To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command:
+
 ```
 git pull origin master
 ```
-If there is a new version available, your copy will be updated. 
+
+If there is a new version available, your copy will be updated.
