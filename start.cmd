@@ -1,1 +1,1 @@
-git pull & npm install & "C:\Program Files\nodejs\node.exe" decipher-survey-sync.js & cls
+git pull & npm install & cls & "C:\Program Files\nodejs\node.exe" decipher-survey-sync.js
