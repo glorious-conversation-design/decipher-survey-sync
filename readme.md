@@ -123,3 +123,11 @@ cd decipher-survey-sync
 
    Error at line 86. That label name ('ch8') has already been used.
    ```
+
+## Updating Decipher Survey Sync
+
+    To update the tool, start your command prompt / terminal, navigate to the tool's directory and type the command: 
+        ```
+        git pull origin master
+        ```
+    If there is a new version available, your copy will be updated. 
