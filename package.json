@@ -3,14 +3,13 @@
   "title": "Decipher Survey Sync",
   "version": "1.0.0",
   "description": "Decipher API based tool for downloading and updating surveys.",
-  "main": "dss.js",
-  "test": "./test/test.js",
+  "main": "decipher-survey-sync.js",
   "bin": {
-    "decipher-survey-sync": "dss.js",
-    "dss": "dss.js"
+    "decipher-survey-sync": "decipher-survey-sync.js",
+    "dss": "decipher-survey-sync.js"
   },
   "scripts": {
-    "start": "node --no-warnings dss.js"
+    "start": "node --no-warnings decipher-survey-sync.js"
   },
   "keywords": [],
   "author": {
