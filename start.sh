@@ -1,8 +1,11 @@
-#!/bin/bash 
-if [[ ! -d "node_modules" ]]; then 
-    npm install
-fi
+#!/bin/bash
 
 git pull
 
-npm start
+# if [[ ! -d "node_modules" ]]; then
+    npm install
+# fi
+
+clear
+
+node ./decipher-survey-sync.js

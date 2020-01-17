@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const axios = require('axios');
 const readline = require('readline');
 const colors = require('colors');
@@ -15,23 +16,23 @@ let the_api_key = '';
     const appInfo = JSON.parse(await fs.readFile('package.json', {
         encoding: 'utf8'
     }));
-    
+
     console.log('======================================');
     console.log('Welcome to ' + appInfo.title + ' ' + appInfo.version);
     console.log('======================================');
     console.log(appInfo.copyright);
     console.log();
     init();
-    
+
 })();
 async function init()  {
-    let projectdirexists = false; 
+    let projectdirexists = false;
     if (process.platform !== 'win32') {
         projectdirexists = await fs.stat('./project')
         .catch((err) => {
             fs.mkdir('./project');
         });
-    } else { 
+    } else {
         projectdirexists = await fs.stat('.//project')
         .catch((err) => {
             fs.mkdir('.//project');
@@ -53,20 +54,20 @@ async function init()  {
         }
     }
     the_api_key = await dss.get_api_key();
-    
-    
+
+
     if (the_api_key === undefined) {
         return;
     }
-    
-    
+
+
     var prompt = inquirer.createPromptModule();
-    
-    
-    
-    
+
+
+
+
     let choices = [{name: 'New Project', atime: new Date()} ];
-    
+
     let projectlist = [];
     if (! await fs.stat('project')) {
         await fs.mkdir('project');
@@ -81,13 +82,13 @@ async function init()  {
         console.log('Exception : ', e);
     }
     await Promise.all(projectlist.map(async (project) => {
-        
+
         if (project.substr(0,1) != '.') {
             const stats = await fs.stat('project/' + project);
             const atime = stats.atime;
             choices.push( { name: project, atime: atime});
-            
-            
+
+
         }
     }));
     choices.sort(function(a,b) {
@@ -102,12 +103,12 @@ async function init()  {
             return choice.name;
         }),
         validate: (input) => {
-            
+
         }
     }]
-    
-    
-    
+
+
+
     /*  Maybe change it back sometimes but for now I want to show the existing project here.
     const questions =
     [{
@@ -116,7 +117,7 @@ async function init()  {
     message: colors.green('Please choose an action...'),
     choices: [ 'New Project', 'Sync' ],
     validate: (input) => {
-    
+
 }
 }]
 */
@@ -178,7 +179,7 @@ const switchmenu =
     message: '',
     choices: ['Switch project', 'Quit'],
     validate: (input) => {
-        
+
     }
 }]
 const switchvar = await inquirer.prompt(switchmenu);
@@ -210,7 +211,7 @@ async function test_api_key(api_key) {
         show_menu(api_key);
     }
     catch(myerr) {
-        
+
         console.error(myerr)
         return false;
     }
