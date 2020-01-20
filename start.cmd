@@ -8,4 +8,4 @@ Rem fi
 
 Cls
 
-"%ProgramFiles%\nodejs\node.exe" ./decipher-survey-sync.js
+node ./decipher-survey-sync.js
