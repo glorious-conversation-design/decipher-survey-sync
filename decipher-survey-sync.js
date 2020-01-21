@@ -5,16 +5,16 @@ const readline = require('readline');
 const colors = require('colors');
 const inquirer = require('inquirer');
 const dss = require('./lib/decipher-survey-sync.js');
-const APITool = require("./lib/api-tool");
+const APITool = require('./lib/api-tool');
 const fs = require('fs').promises;
-//const fs = require('fs');
+// const fs = require('fs');
 const { exec } = require('child_process');
 
 
 let the_api_key = '';
 (async () => {
     const appInfo = JSON.parse(await fs.readFile('package.json', {
-        encoding: 'utf8'
+        encoding: 'utf8',
     }));
 
     console.log('======================================');
@@ -42,14 +42,14 @@ async function init()  {
     try {
         conf = JSON.parse(await fs.readFile('config.json'));
     }
-    catch {
+    catch (e) {
         conf = {
             openEditor: '',
-        }
+        };
         try {
             const written = await fs.writeFile('config.json', JSON.stringify(conf));
         }
-        catch {
+        catch (e) {
             console.error('Couldn\'t write config');
         }
     }
@@ -61,37 +61,35 @@ async function init()  {
     }
 
 
-    var prompt = inquirer.createPromptModule();
+    const prompt = inquirer.createPromptModule();
 
 
 
 
-    let choices = [{name: 'New Project', atime: new Date()} ];
+    const choices = [{name: 'New Project', atime: new Date()}];
 
     let projectlist = [];
-    if (! await fs.stat('project')) {
+    if (!await fs.stat('project')) {
         await fs.mkdir('project');
     }
     try {
-        if (process.platform !== 'win32')
-        projectlist = await fs.readdir('project/');
-        else
-        projectlist = await fs.readdir('project//');
+        if (process.platform !== 'win32') projectlist = await fs.readdir('project/');
+        else projectlist = await fs.readdir('project//');
     }
-    catch(e) {
+    catch (e) {
         console.log('Exception : ', e);
     }
     await Promise.all(projectlist.map(async (project) => {
 
-        if (project.substr(0,1) != '.') {
+        if (project.substr(0, 1) != '.') {
             const stats = await fs.stat('project/' + project);
             const atime = stats.atime;
-            choices.push( { name: project, atime: atime});
+            choices.push({ name: project, atime: atime});
 
 
         }
     }));
-    choices.sort(function(a,b) {
+    choices.sort(function (a, b) {
         return a.atime < b.atime;
     });
     const questions =
@@ -104,8 +102,8 @@ async function init()  {
         }),
         validate: (input) => {
 
-        }
-    }]
+        },
+    }];
 
 
 
@@ -128,23 +126,23 @@ async function init()  {
 
 const {action} = await prompt(questions);
 let project_number = null;
-switch(action) {
-    case "New Project":
+switch (action) {
+    case 'New Project':
     project_number = await dss.download_survey(the_api_key);
     break;
     default:
     project_number = await dss.download_survey(the_api_key, action);
 }
 if (project_number === undefined || project_number === null) {
-    //console.error('Could not find the project ');
+    // console.error('Could not find the project ');
     return;
 }
 const testParams = {
     api_key: the_api_key,
     project_number: project_number,
-}
+};
 
-let api_tool = new APITool(testParams);
+const api_tool = new APITool(testParams);
 
 api_tool.watch();
 if (conf.openEditor != '') {
@@ -180,8 +178,8 @@ const switchmenu =
     choices: ['Switch project', 'Quit'],
     validate: (input) => {
 
-    }
-}]
+    },
+}];
 const switchvar = await inquirer.prompt(switchmenu);
 switch (switchvar.action) {
     case 'Switch project':
@@ -203,16 +201,16 @@ async function test_api_key(api_key) {
     let response = null;
     try {
         const theheaders = {'x-apikey': api_key};
-        console.log(theheaders)
-        response = await axios.get(testlink,{
-            headers: theheaders
+        console.log(theheaders);
+        response = await axios.get(testlink, {
+            headers: theheaders,
         });
         console.log('Starting sync tool...');
         show_menu(api_key);
     }
-    catch(myerr) {
+    catch (myerr) {
 
-        console.error(myerr)
+        console.error(myerr);
         return false;
     }
 }
