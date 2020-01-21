@@ -3,7 +3,7 @@
 git pull
 
 Rem if [[ ! -d "node_modules" ]]; then
-    npm install
+    Cmd /C npm install
 Rem fi
 
 Cls
