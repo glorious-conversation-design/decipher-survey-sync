@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "jest": "^24.9.0",
-    "jest-html-reporter": "^2.7.0",
+    "jest-html-reporter": "^2.7.0"
   },
   "jest": {
     "verbose": true,
