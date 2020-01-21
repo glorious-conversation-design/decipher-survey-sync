@@ -31,7 +31,25 @@
     "xml2js": "^0.4.22"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "jest": "^24.9.0",
+    "jest-html-reporter": "^2.7.0",
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ],
+    "coverageDirectory": "document/coverage/",
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report",
+          "outputPath": "document/test-report.html"
+        }
+      ]
+    ]
   }
 }

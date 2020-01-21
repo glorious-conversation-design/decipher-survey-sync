@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [[ "$(which git)" == "" ]]; then
+ echo "Please install git."
+ exit 1
+fi
+
+if [[ "$(which node)" == "" ]]; then
+ echo "Please install Node.js."
+ exit 1
+fi
+
 if [[ ! -d .git ]]; then
  git init
  git remote add origin https://github.com/glorious-conversation-design/decipher-survey-sync.git
