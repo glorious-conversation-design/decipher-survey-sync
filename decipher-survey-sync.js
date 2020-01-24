@@ -39,8 +39,8 @@ let the_api_key = '';
 (async () => {
     strApiKey_Path = (await dss.get_storage_path()) + 'api.key';
     strConfig_Path = (await dss.get_storage_path()) + 'config.json';
-    console.log(strApiKey_Path.red);
-    console.log(strConfig_Path.blue);
+    // console.log(strApiKey_Path.red);
+    // console.log(strConfig_Path.blue);
 
     const appInfo = JSON.parse(await fs.readFile('package.json', {
         encoding: 'utf8',
@@ -109,7 +109,7 @@ async function init()  {
 
 
 
-    const choices = [{name: 'New Project', atime: new Date()}];
+    const choices = [{name: 'New project', atime: new Date()}];
 
     let projectlist = [];
     if (!await fs.stat('project')) {
@@ -170,7 +170,7 @@ async function init()  {
 const {action} = await prompt(questions);
 let project_number = null;
 switch (action) {
-    case 'New Project':
+    case 'New project':
     project_number = await dss.download_survey(the_api_key);
     break;
     default:
