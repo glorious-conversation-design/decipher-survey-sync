@@ -1,5 +1,6 @@
 #!/bin/bash
 
+exit 1
 if [[ "$(which git)" == "" ]]; then
  echo "Please install git."
  exit 1
@@ -20,10 +21,17 @@ else
  git pull origin master
 fi
 
+
+
 # if [[ ! -d "node_modules" ]]; then
     npm install
 # fi
-
+if [[ -f api.key ]]; then
+ if [[ ! -d ~/.decipher-survey-sync ]]; then 
+  mkdir ~/.decipher-survey-sync
+ fi
+ mv api.key ~/.decipher-survey-sync/api.key
+fi
 clear
 
 node ./decipher-survey-sync.js
