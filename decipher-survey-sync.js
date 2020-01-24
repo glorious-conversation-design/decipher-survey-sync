@@ -76,9 +76,9 @@ async function init()  {
             fs.mkdir('./project');
         });
     } else {
-        projectdirexists = await fs.stat('.//project')
+        projectdirexists = await fs.stat('.\\project')
         .catch((err) => {
-            fs.mkdir('.//project');
+            fs.mkdir('.\\project');
         });
     }
     let conf = null;
@@ -117,7 +117,7 @@ async function init()  {
     }
     try {
         if (process.platform !== 'win32') projectlist = await fs.readdir('project/');
-        else projectlist = await fs.readdir('project//');
+        else projectlist = await fs.readdir('project\\');
     }
     catch (e) {
         console.log('Exception : ', e);
@@ -193,7 +193,7 @@ if (conf.openEditor != '') {
         exec(conf.openEditor + ' project/' + project_number + '/survey.xml');
     }
     else {
-        exec(conf.openEditor + ' project//' + project_number + '//survey.xml');
+        exec(conf.openEditor + ' project\\' + project_number + '\\survey.xml');
     }
     console.log('Showing survey in ' + conf.openEditor);
 }

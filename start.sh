@@ -1,16 +1,13 @@
 #!/bin/bash
-
 exit 1
 if [[ "$(which git)" == "" ]]; then
  echo "Please install git."
  exit 1
 fi
-
 if [[ "$(which node)" == "" ]]; then
  echo "Please install Node.js."
  exit 1
 fi
-
 if [[ ! -d .git ]]; then
  git init
  git remote add origin https://github.com/glorious-conversation-design/decipher-survey-sync.git
@@ -20,9 +17,6 @@ if [[ ! -d .git ]]; then
 else
  git pull origin master
 fi
-
-
-
 # if [[ ! -d "node_modules" ]]; then
     npm install
 # fi
@@ -33,5 +27,4 @@ if [[ -f api.key ]]; then
  mv api.key ~/.decipher-survey-sync/api.key
 fi
 clear
-
 node ./decipher-survey-sync.js
