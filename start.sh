@@ -1,5 +1,4 @@
 #!/bin/bash
-exit 1
 if [[ "$(which git)" == "" ]]; then
  echo "Please install git."
  exit 1
