@@ -19,11 +19,4 @@ fi
 # if [[ ! -d "node_modules" ]]; then
     npm install
 # fi
-if [[ -f api.key ]]; then
- if [[ ! -d ~/.decipher-survey-sync ]]; then 
-  mkdir ~/.decipher-survey-sync
- fi
- mv api.key ~/.decipher-survey-sync/api.key
-fi
-clear
 node ./decipher-survey-sync.js
