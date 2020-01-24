@@ -12,35 +12,10 @@ const { exec } = require('child_process');
 const strUsrPath = require('os').homedir();
 let strApiKeyPath, strConfig_Path;
 
-
-
-/*
-async function moveAPIKeyFile(strUsrPath)
-{
- // check if api.key exists
- console.log('user path: ');
- console.log(strUsrPath);
- const objStat_api = await fs.stat('api.key');
- const strApiKeyPath = getApiKeyPath(strUsrPath);
- if (objStat_api.isFile())
- {
-  console.log('trying to create directory structure for storing api key');
-  console.log('string path is: ' + strApiKeyPath);
-  await fs.mkdir(strApiKeyPath, {recursive: true});
-
- }
-
-}
-*/
-
-
-
 let the_api_key = '';
 (async () => {
     strApiKey_Path = (await dss.get_storage_path()) + 'api.key';
     strConfig_Path = (await dss.get_storage_path()) + 'config.json';
-    // console.log(strApiKey_Path.red);
-    // console.log(strConfig_Path.blue);
 
     const appInfo = JSON.parse(await fs.readFile('package.json', {
         encoding: 'utf8',
